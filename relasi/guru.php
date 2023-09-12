@@ -24,24 +24,24 @@ include("connect.php")
     <form method="post">
 
         <div class="card w-100 m-auto p-2">
-            <h3 class="text-center">Pengguna kartu
+            <h3 class="text-center">Guru Wali Kelas
                 <hr>
             </h3>
             <table class="table  table-striped">
                 <thead>
                     <tr>
                         <th scope="col">No </th>
-                        <th scope="col">Nama Siswa </th>
+                        <th scope="col">Nama Guru </th>
                         <th scope="col"> NiSN </th>
                         <th scope="col">Gender </th>
-                        <th scope="col">Kelas</th>
-                        <th scope="col">Nama Sekolah</th>
+                        <th scope="col">Wali Kelas</th>
+                        <th scope="col">Guru Mapel</th>
 
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    $sql = "SELECT * FROM siswa INNER JOIN kelas   ON  siswa.id_kelas = kelas.id INNER JOIN sekolah ON kelas.id_sekolah = sekolah.id";
+                    $sql = "SELECT * FROM guru INNER JOIN mapel   ON  guru.id_mapel = mapel.id INNER JOIN kelas ON kelas.id_guru_walikelas = guru.id";
                     $result = mysqli_query($conn, $sql);
                     $no = 1;
                     foreach ($result as $row) :
@@ -50,11 +50,11 @@ include("connect.php")
                     ?>
                     <tr>
                         <td><?= $no++; ?></td>
-                        <td><?= $row['nama_siswa']; ?></td>
-                        <td><?= $row['nisn']; ?></td>
+                        <td><?= $row['nama_guru']; ?></td>
+                        <td><?= $row['nik']; ?></td>
                         <td><?= $row['gender']; ?></td>
-                        <td><?= $row['tingkat_kelas'] . '' . $row['jurusan_kelas']; ?></td>
-                        <td><?= $row['nama_sekolah']; ?></td>
+                        <td><?= $row['tingkat_kelas'] . ' ' . $row['jurusan_kelas']; ?></td>
+                        <td><?= $row['nama_mapel']; ?></td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>

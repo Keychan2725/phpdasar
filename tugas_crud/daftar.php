@@ -58,11 +58,10 @@ include("connect.php")
                           <td>' . $TTL . '</td>
                           <td class="text-center ">
                           <a href="update.php?id=' . $id . '"class="btn btn-sm btn-warning text-dark">Update</a>
+                          
+                          <a href="delete.php?id=' . $id . '"class="btn btn-sm btn-warning text-dark">Delete</a>
                           </td>
-                         <td class="text-center">
-                         <button onClick="hapus(' . $id . ')"class="btn btn-sm btn-dark">Delete</button>
-                         
-                         </td>
+                        
                           </tr>';
                         }
                     }
